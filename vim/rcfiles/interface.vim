@@ -12,9 +12,6 @@ set cursorline
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-" Always show the status line
-set laststatus=2
-
 " Get rid of default mode indicator - using airline's instead
 set noshowmode
 
