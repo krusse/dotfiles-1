@@ -50,16 +50,17 @@ function! GitHunks()
 endfunction
 
 function! BuildStatusLine()
-  let file_name  = '%< %f'
+  let file_name  = '%{&readonly?"⭤":""}%< %f'
   let file_type  = ' %Y '
   let git_branch = '%( %{GitBranch()} %)'
   let hunks      = '%( %{GitHunks()} %)'
   let position   = ' %2l:%-2c %P'
+  let isModified = '%{&modified?" [+]":""}'
   let separator  = ' %= '
   let syntastic  = '%#ErrorMsg#%{SyntasticStatuslineFlag()}%*'
   let vim_mode   = ' %{Mode()} '
 
-  return vim_mode.file_name.position.separator.file_type.git_branch.hunks.syntastic
+  return vim_mode.file_name.position.isModified.separator.file_type.git_branch.hunks.syntastic
 endfunction
 
 " Always show the status line
