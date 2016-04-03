@@ -1,7 +1,3 @@
-# Enable a 256-color Terminal. This conditional statement ensures that the TERM
-# variable is only set outside of tmux, since tmux sets its own terminal.
-[[ -z "$TMUX" ]] && export TERM="xterm-256color"
-
 # Use vim as the visual editor
 export VISUAL='mvim -v'
 export EDITOR=$VISUAL
@@ -10,7 +6,6 @@ export EDITOR=$VISUAL
 export KEYTIMEOUT=1
 
 DOTFILES="$HOME/.dotfiles"
-SHELL="/usr/local/bin/zsh"
 ZSH="$HOME/.zsh"
 ZSH_CACHE_DIR="$ZSH/cache/"
 
