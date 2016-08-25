@@ -18,6 +18,10 @@ bindkey -v
 autoload -Uz edit-command-line
 bindkey -M vicmd 'v' edit-command-line
 
+# map <jk> to <ESC>
+# this requires `KEYTIMEOUT` to be > 1
+bindkey -M viins 'jk' vi-cmd-mode
+
 # allow ctrl-p, ctrl-n for navigate history (standard behaviour)
 bindkey '^P' up-history
 bindkey '^N' down-history
