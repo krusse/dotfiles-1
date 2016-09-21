@@ -31,6 +31,9 @@
 [include]
   path = ~/.gitconfig.local
 
+[init]
+  templatedir = ~/.dotfiles/git/git_template
+
 [interactive]
   singleKey = true
 

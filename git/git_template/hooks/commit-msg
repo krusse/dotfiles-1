@@ -1,0 +1,98 @@
+#!/usr/bin/env ruby
+
+class Printer
+  def initialize
+  end
+
+  # Executed at the very beginning of running the collection of hooks.
+  def start_run
+    puts "Running #{hook_script_name} hooks"
+  end
+
+  private
+
+  def hook_script_name
+    'CommitMsg'
+  end
+end
+
+class CommitMsgHook
+  def initialize(commit_message_file)
+    @commit_message_file = commit_message_file
+  end
+
+  def run
+    return :ok if empty_message?
+
+    if trailing_period?
+      return :warn, 'Please omit trailing period from commit message subject'
+    end
+    if capitalized_subject?
+      return :warn, 'Subject should start with a capital letter'
+    end
+
+    :ok
+  end
+
+  private
+
+  def empty_message?
+    commit_message.strip.empty?
+  end
+
+  # TODO check ?
+  def trailing_period?
+    commit_message_lines.first.rstrip.end_with?('.')
+  end
+
+  def capitalized_subject?
+    subject = commit_message_lines[0].to_s
+    first_letter = subject.match(/^[[:punct:]]*(.)/)[1]
+    if special_prefix?(subject) || emoji?(subject) || upper_case?(first_letter)
+      return false
+    else
+      return true
+    end
+  end
+
+  def special_prefix?(subject)
+    subject =~ /^(fixup|squash)!/
+  end
+
+  def emoji?(subject)
+    subject =~ /^:\w+:/
+  end
+
+  def upper_case?(letter)
+    letter =~ /[[:upper:]]/
+  end
+  # User commit message stripped of comments and diff (from verbose output).
+  def commit_message
+    commit_message_lines.join
+  end
+
+  def commit_message_lines
+    raw_commit_message_lines.
+      take_while { |line| !line.start_with?('diff --git') }.
+      reject     { |line| line.start_with?(comment_character) }
+  end
+
+  def comment_character
+    char = `git config --get core.commentchar`.chomp
+    char = '#' if char == ''
+    char
+  end
+
+  def raw_commit_message_lines
+    ::IO.readlines(@commit_message_file)
+  end
+end
+
+printer = Printer.new
+printer.start_run
+
+runner = CommitMsgHook.new(ARGV[0])
+status = runner.run
+puts "status: #{status}"
+
+exit(status == :ok ? 0 : 1)
