@@ -44,12 +44,15 @@ ln -sf "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTFILES_DIR/git/gitignore_global" "$HOME/.gitignore_global"
 
 # TheSilverSearcher ignore list
-ln -sf "$DOTFILES_DIR/ag/agignore" "$HOME/.agignore"
+ln -sf "$DOTFILES_DIR/ag/ignore" "$HOME/.ignore"
 
 # ctags
 ln -sf "$DOTFILES_DIR/ctags/ctags" "$HOME/.ctags"
 
 # curl
 ln -sf "$DOTFILES/curl/curlrc" "$HOME/.curlrc"
+
+# pdns
+ln -sf "$DOTFILES/pdns/pdns.conf" /usr/local/etc/
 
 info "Done."

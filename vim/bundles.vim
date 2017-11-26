@@ -42,7 +42,7 @@ Plug 'pangloss/vim-javascript' ,   { 'for': ['javascript.jsx', 'javascript'] }
 Plug 'heavenshell/vim-jsdoc' ,     { 'for': ['javascript.jsx', 'javascript'] }
 
 " Markdown
-Plug 'plasticboy/vim-markdown',    { 'for': 'markdown' }
+" Plug 'plasticboy/vim-markdown',    { 'for': 'markdown' }
 
 " Ruby
 Plug 'tpope/vim-haml',             { 'for': 'haml' }

@@ -12,3 +12,6 @@ tags
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# the_silver_searcher
+.ignore

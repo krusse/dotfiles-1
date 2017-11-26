@@ -1,5 +1,8 @@
 HISTFILE=$HOME/.zsh_history
 
+# Do not write entries matching the following patterns to the history file.
+HISTORY_IGNORE="pass*"
+
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -8,6 +11,9 @@ setopt EXTENDED_HISTORY
 
 # Expire duplicate entries first when trimming history.
 setopt HIST_EXPIRE_DUPS_FIRST
+
+# Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_DUPS
 
 # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_IGNORE_ALL_DUPS

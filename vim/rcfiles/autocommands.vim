@@ -18,11 +18,11 @@ augroup restore_cursor_position
         \ endif
 augroup END
 
-augroup auto_save_and_read
-    autocmd!
-    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-    autocmd CursorHold * silent! checktime
-augroup END
+" augroup auto_save_and_read
+"     autocmd!
+"     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+"     autocmd CursorHold * silent! checktime
+" augroup END
 
 " Only highlight the current line in the current window.
 augroup cursor_line

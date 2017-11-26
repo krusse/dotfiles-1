@@ -1,11 +1,14 @@
 # Paths
 path=(
   /usr/local/opt/coreutils/libexec/gnubin
+  /usr/local/opt/go/libexec/bin
   $DOTFILES/bin
-  /usr/local/bin
+  /usr/local/{sbin,bin}
   /usr/{sbin,bin}
   /{sbin,bin}
   /Applications/Postgres.app/Contents/Versions/latest/bin
+  $HOME/Library/Haskell/bin
+  $HOME/.local/bin
 )
 
 cdpath=(

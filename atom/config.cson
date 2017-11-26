@@ -1,10 +1,22 @@
 "*":
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "language-elixir"
       "linter-elixirc"
       "welcome"
       "metrics"
+      "linter"
     ]
     packagesWithKeymapsDisabled: [
       "highlight-line"
@@ -15,6 +27,10 @@
     fontSize: 15
   "exception-reporting":
     userId: "1dd85e3b-ba87-9779-645f-85f161541155"
+  "linter-ui-default":
+    panelHeight: 300
+  nuclide:
+    "atom-ide-code-format": {}
   welcome:
     showOnStartup: false
   whitespace:

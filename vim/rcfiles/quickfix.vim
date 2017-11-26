@@ -5,3 +5,5 @@ nnoremap [l :lprev<CR>zz
 
 " Close quickfix/location window
 nnoremap <leader>c :cclose<bar>lclose<cr>
+nnoremap <buffer> j jzz
+nnoremap <buffer> k kzz

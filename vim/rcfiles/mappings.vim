@@ -2,8 +2,11 @@
 " Basic Mappings
 " ----------------------------------------------------------------------------
 " Save
-nnoremap ,, :w<CR>
-inoremap ,, <C-O>:w<CR>
+" Thanks to 'auto_save_and_read' autocomd I rarely need to explicitly save the
+" file. See 'vim/rcfiles/autocommands.vim'.
+inoremap <C-s> <C-O>:write<cr>
+nnoremap <C-s> :write<CR>
+
 
 " Save & Quit
 nnoremap <leader>x :x<CR>
@@ -91,7 +94,6 @@ vnoremap <Right> <NOP>
 " keys are under two of my strongest fingers and I don't have to perform a
 " chord.
 inoremap jk <Esc>
-xnoremap jk <Esc>
 cnoremap jk <C-c>
 
 " Disable <Esc> key in insert mode. Use <jk> mapping to exit insert mode.
